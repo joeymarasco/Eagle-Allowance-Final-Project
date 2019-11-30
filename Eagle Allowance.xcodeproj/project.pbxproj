@@ -3,19 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BBDBD164A8F420D763B27B5 /* Pods_Eagle_Allowance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6DF396162F86E05E647C0E7 /* Pods_Eagle_Allowance.framework */; };
 		C7C01FDC2391A3CD005A4610 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FDB2391A3CD005A4610 /* AppDelegate.swift */; };
 		C7C01FDE2391A3CD005A4610 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FDD2391A3CD005A4610 /* SceneDelegate.swift */; };
 		C7C01FE02391A3CD005A4610 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FDF2391A3CD005A4610 /* ViewController.swift */; };
 		C7C01FE32391A3CD005A4610 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7C01FE12391A3CD005A4610 /* Main.storyboard */; };
 		C7C01FE52391A3CE005A4610 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7C01FE42391A3CE005A4610 /* Assets.xcassets */; };
 		C7C01FE82391A3CE005A4610 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7C01FE62391A3CE005A4610 /* LaunchScreen.storyboard */; };
+		C7C01FF02391A4A3005A4610 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FEF2391A4A3005A4610 /* Job.swift */; };
+		C7C01FF22391A564005A4610 /* Jobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FF12391A564005A4610 /* Jobs.swift */; };
+		C7C01FF42391ACEF005A4610 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FF32391ACEF005A4610 /* JobDetailViewController.swift */; };
+		C7C01FF62391B2A3005A4610 /* AddJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FF52391B2A3005A4610 /* AddJobViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4256F323279A2ABD73395261 /* Pods-Eagle Allowance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eagle Allowance.debug.xcconfig"; path = "Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance.debug.xcconfig"; sourceTree = "<group>"; };
+		B6DF396162F86E05E647C0E7 /* Pods_Eagle_Allowance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eagle_Allowance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0A242EE99E7F23A8F74A26A /* Pods-Eagle Allowance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eagle Allowance.release.xcconfig"; path = "Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance.release.xcconfig"; sourceTree = "<group>"; };
 		C7C01FD82391A3CD005A4610 /* Eagle Allowance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eagle Allowance.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7C01FDB2391A3CD005A4610 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7C01FDD2391A3CD005A4610 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +32,10 @@
 		C7C01FE42391A3CE005A4610 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7C01FE72391A3CE005A4610 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7C01FE92391A3CE005A4610 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7C01FEF2391A4A3005A4610 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		C7C01FF12391A564005A4610 /* Jobs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jobs.swift; sourceTree = "<group>"; };
+		C7C01FF32391ACEF005A4610 /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
+		C7C01FF52391B2A3005A4610 /* AddJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BBDBD164A8F420D763B27B5 /* Pods_Eagle_Allowance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E17DFF6CED6820DE5BF68B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4256F323279A2ABD73395261 /* Pods-Eagle Allowance.debug.xcconfig */,
+				C0A242EE99E7F23A8F74A26A /* Pods-Eagle Allowance.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AD68E72E66E745CAF537063E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6DF396162F86E05E647C0E7 /* Pods_Eagle_Allowance.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C7C01FCF2391A3CD005A4610 = {
 			isa = PBXGroup;
 			children = (
 				C7C01FDA2391A3CD005A4610 /* Eagle Allowance */,
 				C7C01FD92391A3CD005A4610 /* Products */,
+				5E17DFF6CED6820DE5BF68B6 /* Pods */,
+				AD68E72E66E745CAF537063E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,12 +89,16 @@
 			isa = PBXGroup;
 			children = (
 				C7C01FDB2391A3CD005A4610 /* AppDelegate.swift */,
-				C7C01FDD2391A3CD005A4610 /* SceneDelegate.swift */,
+				C7C01FF12391A564005A4610 /* Jobs.swift */,
+				C7C01FEF2391A4A3005A4610 /* Job.swift */,
 				C7C01FDF2391A3CD005A4610 /* ViewController.swift */,
+				C7C01FF32391ACEF005A4610 /* JobDetailViewController.swift */,
+				C7C01FF52391B2A3005A4610 /* AddJobViewController.swift */,
 				C7C01FE12391A3CD005A4610 /* Main.storyboard */,
 				C7C01FE42391A3CE005A4610 /* Assets.xcassets */,
 				C7C01FE62391A3CE005A4610 /* LaunchScreen.storyboard */,
 				C7C01FE92391A3CE005A4610 /* Info.plist */,
+				C7C01FDD2391A3CD005A4610 /* SceneDelegate.swift */,
 			);
 			path = "Eagle Allowance";
 			sourceTree = "<group>";
@@ -74,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7C01FEC2391A3CE005A4610 /* Build configuration list for PBXNativeTarget "Eagle Allowance" */;
 			buildPhases = (
+				AC3A4D02C0DB2041DA3B4623 /* [CP] Check Pods Manifest.lock */,
 				C7C01FD42391A3CD005A4610 /* Sources */,
 				C7C01FD52391A3CD005A4610 /* Frameworks */,
 				C7C01FD62391A3CD005A4610 /* Resources */,
+				C166A19F5ADE5A671B62BBF0 /* [CP] Embed Pods Frameworks */,
+				ABD2E416937817C73C6E7998 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,14 +172,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ABD2E416937817C73C6E7998 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC3A4D02C0DB2041DA3B4623 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Eagle Allowance-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C166A19F5ADE5A671B62BBF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C7C01FD42391A3CD005A4610 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C7C01FE02391A3CD005A4610 /* ViewController.swift in Sources */,
+				C7C01FF42391ACEF005A4610 /* JobDetailViewController.swift in Sources */,
 				C7C01FDC2391A3CD005A4610 /* AppDelegate.swift in Sources */,
+				C7C01FF62391B2A3005A4610 /* AddJobViewController.swift in Sources */,
+				C7C01FF22391A564005A4610 /* Jobs.swift in Sources */,
 				C7C01FDE2391A3CD005A4610 /* SceneDelegate.swift in Sources */,
+				C7C01FF02391A4A3005A4610 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +384,7 @@
 		};
 		C7C01FED2391A3CE005A4610 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4256F323279A2ABD73395261 /* Pods-Eagle Allowance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +403,7 @@
 		};
 		C7C01FEE2391A3CE005A4610 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0A242EE99E7F23A8F74A26A /* Pods-Eagle Allowance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

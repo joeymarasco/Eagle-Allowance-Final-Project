@@ -7,19 +7,45 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
+import GoogleSignIn
 
 class ViewController: UIViewController {
     @IBOutlet weak var jobTableView: UITableView!
     
     var jobs: Jobs!
+    var authUI: FUIAuth!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        authUI = FUIAuth.defaultAuthUI()
+        authUI?.delegate = self
+        
+        
         jobTableView.delegate = self
         jobTableView.dataSource = self
+        jobTableView.isHidden = true
         
         jobs = Jobs()
         jobs.jobArray.append(Job(jobTitle: "Clean my kitchen", jobDescription: "my kitchen is super dirty and I need somebody to clean it", paymentMethod: "$10 venmo", postingUserID: "", documentID: ""))
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        signIn()
+    }
+    
+    func signIn() {
+        let providers: [FUIAuthProvider] = [FUIGoogleAuth()]
+        if authUI.auth?.currentUser == nil {
+            self.authUI.providers = providers
+            present(authUI.authViewController(), animated: true, completion: nil)
+        } else {
+            jobTableView.isHidden = false
+        }
         
     }
     
@@ -34,6 +60,21 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func signOutPressed(_ sender: UIBarButtonItem) {
+        do {
+            try authUI!.signOut()
+            print("$$$ successful sign out")
+            jobTableView.isHidden = true
+            signIn()
+        } catch {
+            jobTableView.isHidden = true
+            print("ERROR: Couldnt sign out")
+        }
+        
+        
+        
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -46,7 +87,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = jobs.jobArray[indexPath.row].jobTitle
         return cell
     }
-    
-    
 }
 
+extension ViewController: FUIAuthDelegate {
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
+      if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+        return true
+      }
+      // other URL handling goes here.
+      return false
+    }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        if let user = user {
+            jobTableView.isHidden = false
+            print("**** we signed in with user: \(user.email ?? "unknown email")")
+        }
+      
+    }
+}

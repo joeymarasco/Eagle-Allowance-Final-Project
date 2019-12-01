@@ -43,6 +43,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="HQF-2q-G6Z">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="sHt-8x-TWR">
+                            <connections>
+                                <action selector="signOutPressed:" destination="BYZ-38-t0r" id="xCQ-A9-bBd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="a1f-oi-Z4t">
                             <connections>
                                 <segue destination="9G1-oA-hlg" kind="presentation" identifier="AddJob" id="yF9-ry-LMq"/>

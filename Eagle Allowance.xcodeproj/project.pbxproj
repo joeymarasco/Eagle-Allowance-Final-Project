@@ -18,6 +18,7 @@
 		C7C01FF22391A564005A4610 /* Jobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FF12391A564005A4610 /* Jobs.swift */; };
 		C7C01FF42391ACEF005A4610 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FF32391ACEF005A4610 /* JobDetailViewController.swift */; };
 		C7C01FF62391B2A3005A4610 /* AddJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FF52391B2A3005A4610 /* AddJobViewController.swift */; };
+		C7C01FF8239305CB005A4610 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7C01FF7239305CB005A4610 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C7C01FF12391A564005A4610 /* Jobs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jobs.swift; sourceTree = "<group>"; };
 		C7C01FF32391ACEF005A4610 /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		C7C01FF52391B2A3005A4610 /* AddJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobViewController.swift; sourceTree = "<group>"; };
+		C7C01FF7239305CB005A4610 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				C7C01FE42391A3CE005A4610 /* Assets.xcassets */,
 				C7C01FE62391A3CE005A4610 /* LaunchScreen.storyboard */,
 				C7C01FE92391A3CE005A4610 /* Info.plist */,
+				C7C01FF7239305CB005A4610 /* GoogleService-Info.plist */,
 				C7C01FDD2391A3CD005A4610 /* SceneDelegate.swift */,
 			);
 			path = "Eagle Allowance";
@@ -165,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7C01FE82391A3CE005A4610 /* LaunchScreen.storyboard in Resources */,
+				C7C01FF8239305CB005A4610 /* GoogleService-Info.plist in Resources */,
 				C7C01FE52391A3CE005A4610 /* Assets.xcassets in Resources */,
 				C7C01FE32391A3CD005A4610 /* Main.storyboard in Resources */,
 			);

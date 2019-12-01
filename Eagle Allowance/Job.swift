@@ -15,6 +15,10 @@ class Job {
     var postingUserID: String
     var documentID: String
     
+    var dictionary: [String: Any] {
+        return ["jobTitle": jobTitle , "jobDescription": jobDescription, "paymentMethod": paymentMethod, "postingUserID": postingUserID, "documentID": documentID]
+    }
+    
     init(jobTitle: String, jobDescription: String, paymentMethod: String, postingUserID: String, documentID: String) {
         self.jobTitle = jobTitle
         self.jobDescription = jobDescription

@@ -13,6 +13,7 @@ import GoogleSignIn
 
 class ViewController: UIViewController {
     @IBOutlet weak var jobTableView: UITableView!
+    @IBOutlet weak var addJobBarButton: UIBarButtonItem!
     
     var jobs: Jobs!
     var authUI: FUIAuth!
@@ -27,10 +28,16 @@ class ViewController: UIViewController {
         jobTableView.delegate = self
         jobTableView.dataSource = self
         jobTableView.isHidden = true
+        addJobBarButton.isEnabled = false
         
         jobs = Jobs()
-        jobs.jobArray.append(Job(jobTitle: "Clean my kitchen", jobDescription: "my kitchen is super dirty and I need somebody to clean it", paymentMethod: "$10 venmo", postingUserID: "", documentID: ""))
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        jobs.loadData {
+            self.jobTableView.reloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,6 +52,7 @@ class ViewController: UIViewController {
             present(authUI.authViewController(), animated: true, completion: nil)
         } else {
             jobTableView.isHidden = false
+            addJobBarButton.isEnabled = true
         }
         
     }
@@ -66,15 +74,19 @@ class ViewController: UIViewController {
             try authUI!.signOut()
             print("$$$ successful sign out")
             jobTableView.isHidden = true
+            addJobBarButton.isEnabled = false
             signIn()
         } catch {
             jobTableView.isHidden = true
+            addJobBarButton.isEnabled = false
             print("ERROR: Couldnt sign out")
         }
-        
-        
-        
     }
+    
+    @IBAction func aboutButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "ShowAboutPage", sender: nil)
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -85,6 +97,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = jobTableView.dequeueReusableCell(withIdentifier: "JobCell", for: indexPath)
         cell.textLabel?.text = jobs.jobArray[indexPath.row].jobTitle
+        cell.textLabel?.textColor = UIColor.init(hue: 5.0, saturation: 0.83, brightness: 0.37, alpha: 0.95)
         return cell
     }
 }
@@ -103,6 +116,7 @@ extension ViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         if let user = user {
             jobTableView.isHidden = false
+            addJobBarButton.isEnabled = true
             print("**** we signed in with user: \(user.email ?? "unknown email")")
         }
       

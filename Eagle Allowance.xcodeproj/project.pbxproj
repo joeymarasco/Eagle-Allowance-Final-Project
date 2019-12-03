@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1BBDBD164A8F420D763B27B5 /* Pods_Eagle_Allowance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6DF396162F86E05E647C0E7 /* Pods_Eagle_Allowance.framework */; };
+		C70A2B2D2395D0CF00043CB0 /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A2B2C2395D0CF00043CB0 /* AboutPageViewController.swift */; };
+		C70A2B2F2395D21F00043CB0 /* LoadPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A2B2E2395D21F00043CB0 /* LoadPageViewController.swift */; };
+		C70A2B3123961E5B00043CB0 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A2B3023961E5B00043CB0 /* PhotosViewController.swift */; };
 		C7C01FDC2391A3CD005A4610 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FDB2391A3CD005A4610 /* AppDelegate.swift */; };
 		C7C01FDE2391A3CD005A4610 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FDD2391A3CD005A4610 /* SceneDelegate.swift */; };
 		C7C01FE02391A3CD005A4610 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C01FDF2391A3CD005A4610 /* ViewController.swift */; };
@@ -25,6 +28,9 @@
 		4256F323279A2ABD73395261 /* Pods-Eagle Allowance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eagle Allowance.debug.xcconfig"; path = "Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance.debug.xcconfig"; sourceTree = "<group>"; };
 		B6DF396162F86E05E647C0E7 /* Pods_Eagle_Allowance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eagle_Allowance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A242EE99E7F23A8F74A26A /* Pods-Eagle Allowance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eagle Allowance.release.xcconfig"; path = "Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance.release.xcconfig"; sourceTree = "<group>"; };
+		C70A2B2C2395D0CF00043CB0 /* AboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
+		C70A2B2E2395D21F00043CB0 /* LoadPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPageViewController.swift; sourceTree = "<group>"; };
+		C70A2B3023961E5B00043CB0 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		C7C01FD82391A3CD005A4610 /* Eagle Allowance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eagle Allowance.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7C01FDB2391A3CD005A4610 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7C01FDD2391A3CD005A4610 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +102,9 @@
 				C7C01FDF2391A3CD005A4610 /* ViewController.swift */,
 				C7C01FF32391ACEF005A4610 /* JobDetailViewController.swift */,
 				C7C01FF52391B2A3005A4610 /* AddJobViewController.swift */,
+				C70A2B2C2395D0CF00043CB0 /* AboutPageViewController.swift */,
+				C70A2B2E2395D21F00043CB0 /* LoadPageViewController.swift */,
+				C70A2B3023961E5B00043CB0 /* PhotosViewController.swift */,
 				C7C01FE12391A3CD005A4610 /* Main.storyboard */,
 				C7C01FE42391A3CE005A4610 /* Assets.xcassets */,
 				C7C01FE62391A3CE005A4610 /* LaunchScreen.storyboard */,
@@ -247,6 +256,9 @@
 				C7C01FF22391A564005A4610 /* Jobs.swift in Sources */,
 				C7C01FDE2391A3CD005A4610 /* SceneDelegate.swift in Sources */,
 				C7C01FF02391A4A3005A4610 /* Job.swift in Sources */,
+				C70A2B2F2395D21F00043CB0 /* LoadPageViewController.swift in Sources */,
+				C70A2B2D2395D0CF00043CB0 /* AboutPageViewController.swift in Sources */,
+				C70A2B3123961E5B00043CB0 /* PhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

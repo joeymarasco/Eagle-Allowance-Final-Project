@@ -7,20 +7,37 @@
 //
 
 import UIKit
+import Firebase
 
 class AddJobViewController: UIViewController {
 
+    @IBOutlet weak var jobTitleField: UITextField!
+    @IBOutlet weak var jobDescriptionField: UITextField!
+    @IBOutlet weak var paymentMethodField: UITextField!
+    @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    
+    
     var job: Job!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if job == nil {
+            job = Job()
+        }
+        
+        saveBarButton.isEnabled = false
     }
     
-    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+    func checkEnableSave() {
+        if jobTitleField.text != "" && jobDescriptionField.text != "" && paymentMethodField.text != "" {
+            saveBarButton.isEnabled = true
+        } else {
+            saveBarButton.isEnabled = false
+        }
     }
     
-    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+    func leaveViewController() {
         let isPresentingInAddMode = presentingViewController is UINavigationController
         if isPresentingInAddMode {
             dismiss(animated: true, completion: nil)
@@ -28,4 +45,43 @@ class AddJobViewController: UIViewController {
             navigationController?.popViewController(animated: true)
         }
     }
+    
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        job.jobTitle = jobTitleField.text!
+        job.jobDescription = jobDescriptionField.text!
+        job.paymentMethod = paymentMethodField.text!
+        job.saveData { success in
+            if success {
+                self.leaveViewController()
+            } else {
+                print("### ERROR: couldn't leave view controller because data wasnt saved")
+            }
+    }
 }
+    
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        leaveViewController()
+    }
+    
+    @IBAction func jobTitleChanged(_ sender: UITextField) {
+        checkEnableSave()
+    }
+
+    @IBAction func jobDescriptionChanged(_ sender: UITextField) {
+        checkEnableSave()
+    }
+
+    @IBAction func paymentMethodChanged(_ sender: Any) {
+        checkEnableSave()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+

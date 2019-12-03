@@ -71,5 +71,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Eagle Allowance will need access to your camera in order to post photos. </string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Eagle Allowance will need access to your photo library in order to post photos. </string>
 </dict>
 </plist>

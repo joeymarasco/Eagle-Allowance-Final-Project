@@ -17,6 +17,9 @@ class AboutPageViewController: UIViewController {
     }
     
 
- 
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
 }

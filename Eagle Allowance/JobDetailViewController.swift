@@ -51,7 +51,8 @@ class JobDetailViewController: UIViewController {
         }
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = (self as MFMailComposeViewControllerDelegate)
-        // set recipients and such here
+        composer.setToRecipients([job.postingUserID])
+        composer.setSubject("EAGLE ALLOWANCE: SOMEBODY IS INTERESTED IN YOUR JOB!")
         present(composer, animated: true)
     }
 
@@ -80,6 +81,6 @@ class JobDetailViewController: UIViewController {
 extension JobDetailViewController: MFMailComposeViewControllerDelegate {
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }

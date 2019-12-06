@@ -9,11 +9,12 @@
 import UIKit
 
 class JobPhotoCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var jobImageView: UIImageView!
+
+    @IBOutlet weak var cellPhotoimageView: UIImageView!
     
     var photo: Photo! {
         didSet {
-            jobImageView.image = photo.image
+            cellPhotoimageView.image = photo.image
         }
     }
     

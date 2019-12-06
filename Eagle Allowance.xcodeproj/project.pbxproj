@@ -10,7 +10,6 @@
 		1BBDBD164A8F420D763B27B5 /* Pods_Eagle_Allowance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6DF396162F86E05E647C0E7 /* Pods_Eagle_Allowance.framework */; };
 		C70A2B2D2395D0CF00043CB0 /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A2B2C2395D0CF00043CB0 /* AboutPageViewController.swift */; };
 		C70A2B2F2395D21F00043CB0 /* LoadPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A2B2E2395D21F00043CB0 /* LoadPageViewController.swift */; };
-		C70A2B3123961E5B00043CB0 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A2B3023961E5B00043CB0 /* PhotosViewController.swift */; };
 		C70A2B332396D60600043CB0 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A2B322396D60600043CB0 /* Photo.swift */; };
 		C70A2B352396D70A00043CB0 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A2B342396D70A00043CB0 /* Photos.swift */; };
 		C70A2B372396E47F00043CB0 /* JobPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A2B362396E47F00043CB0 /* JobPhotoCollectionViewCell.swift */; };
@@ -33,7 +32,6 @@
 		C0A242EE99E7F23A8F74A26A /* Pods-Eagle Allowance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eagle Allowance.release.xcconfig"; path = "Target Support Files/Pods-Eagle Allowance/Pods-Eagle Allowance.release.xcconfig"; sourceTree = "<group>"; };
 		C70A2B2C2395D0CF00043CB0 /* AboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
 		C70A2B2E2395D21F00043CB0 /* LoadPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPageViewController.swift; sourceTree = "<group>"; };
-		C70A2B3023961E5B00043CB0 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		C70A2B322396D60600043CB0 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		C70A2B342396D70A00043CB0 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		C70A2B362396E47F00043CB0 /* JobPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				C7C01FF52391B2A3005A4610 /* AddJobViewController.swift */,
 				C70A2B2C2395D0CF00043CB0 /* AboutPageViewController.swift */,
 				C70A2B2E2395D21F00043CB0 /* LoadPageViewController.swift */,
-				C70A2B3023961E5B00043CB0 /* PhotosViewController.swift */,
 				C70A2B362396E47F00043CB0 /* JobPhotoCollectionViewCell.swift */,
 				C7C01FE12391A3CD005A4610 /* Main.storyboard */,
 				C7C01FE42391A3CE005A4610 /* Assets.xcassets */,
@@ -270,7 +267,6 @@
 				C70A2B2F2395D21F00043CB0 /* LoadPageViewController.swift in Sources */,
 				C70A2B2D2395D0CF00043CB0 /* AboutPageViewController.swift in Sources */,
 				C70A2B372396E47F00043CB0 /* JobPhotoCollectionViewCell.swift in Sources */,
-				C70A2B3123961E5B00043CB0 /* PhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

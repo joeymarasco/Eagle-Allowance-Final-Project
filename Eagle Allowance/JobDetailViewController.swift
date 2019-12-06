@@ -10,30 +10,52 @@ import UIKit
 import MessageUI
 import Firebase
 
-class JobDetailViewController: UIViewController {
+class JobDetailViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var postingUserIDLabel: UILabel!
     @IBOutlet weak var jobDescriptionTextView: UITextView!
     @IBOutlet weak var paymentMethodLabel: UILabel!
-    @IBOutlet weak var deleteJobButton: UIButton!
-    
+    @IBOutlet weak var deleteJobBarButton: UIBarButtonItem!
 
     var job: Job!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if job == nil {
             job = Job()
         }
         updateUserInterface()
-        
         if Auth.auth().currentUser?.email == postingUserIDLabel.text {
-            deleteJobButton.isHidden = false
+            deleteJobBarButton.isEnabled = true
         } else {
-            deleteJobButton.isHidden = true
+            deleteJobBarButton.isEnabled = false
         }
-        
+    }
+    
+    func configurMailController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        mailComposerVC.setToRecipients([job.postingUserID])
+        mailComposerVC.setSubject("EAGLE EXCHANGE: YOUR JOB HAS BEEN ACCEPTED")
+        return mailComposerVC
+    }
+    
+    func showMailError() {
+        let sendMailErrorAlert = UIAlertController(title: "Could not send email", message: "Your device could not send email", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        sendMailErrorAlert.addAction(dismiss)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     func updateUserInterface() {
@@ -43,44 +65,31 @@ class JobDetailViewController: UIViewController {
         paymentMethodLabel.text = job.paymentMethod
     }
     
-    func showMailComposer() {
-        
-        guard MFMailComposeViewController.canSendMail() else {
-            // show alert saying you cannot email
-            return
-        }
-        let composer = MFMailComposeViewController()
-        composer.mailComposeDelegate = (self as MFMailComposeViewControllerDelegate)
-        composer.setToRecipients([job.postingUserID])
-        composer.setSubject("EAGLE ALLOWANCE: SOMEBODY IS INTERESTED IN YOUR JOB!")
-        present(composer, animated: true)
-    }
-
-
     @IBAction func contactBarButtonPressed(_ sender: UIBarButtonItem) {
-        showMailComposer()
-    }
-    
-    @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        job.deleteData(job: job) { success in
-            if success {
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                print("😡 Delete unsuccessful.")
-            }
+        let mailComposeViewController = configurMailController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            showMailError()
         }
+       
     }
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func delteJobBarButtonPressed(_ sender: UIBarButtonItem) {
+        job.deleteData(job: job) { (success) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print("delte unsuccessful")
+            }
+        }
+    }
     
 }
 
-extension JobDetailViewController: MFMailComposeViewControllerDelegate {
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        self.navigationController?.popViewController(animated: true)
-    }
-}
+
+

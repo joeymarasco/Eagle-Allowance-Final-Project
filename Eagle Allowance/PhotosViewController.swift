@@ -31,12 +31,13 @@ class PhotosViewController: UIViewController {
 }
 
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.photoArray.count
-    }
+
+    
+ 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = jobPhotoCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! JobPhotoCollectionViewCell
+        
         cell.photo = photos.photoArray[indexPath.row]
         return cell
     }

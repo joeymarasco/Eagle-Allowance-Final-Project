@@ -24,11 +24,11 @@ class ViewController: UIViewController {
         authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
         
-        
         jobTableView.delegate = self
         jobTableView.dataSource = self
         jobTableView.isHidden = true
         addJobBarButton.isEnabled = false
+        // should make the button say sign in 
         
         jobs = Jobs()
         
@@ -54,7 +54,6 @@ class ViewController: UIViewController {
             jobTableView.isHidden = false
             addJobBarButton.isEnabled = true
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,18 +85,19 @@ class ViewController: UIViewController {
     @IBAction func aboutButtonPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "ShowAboutPage", sender: nil)
     }
-    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jobs.jobArray.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = jobTableView.dequeueReusableCell(withIdentifier: "JobCell", for: indexPath)
         cell.textLabel?.text = jobs.jobArray[indexPath.row].jobTitle
         cell.textLabel?.textColor = UIColor.init(hue: 5.0, saturation: 0.83, brightness: 0.37, alpha: 0.95)
+        if jobs.jobArray[indexPath.row].postingUserID == authUI.auth?.currentUser?.email {
+            cell.contentView.backgroundColor = UIColor.lightGray
+        }
         return cell
     }
 }
@@ -116,9 +116,11 @@ extension ViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         if let user = user {
             jobTableView.isHidden = false
+            ///
+            
+            // this is where is should change the name of the sign in button
             addJobBarButton.isEnabled = true
             print("**** we signed in with user: \(user.email ?? "unknown email")")
         }
-      
     }
 }

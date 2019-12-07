@@ -10,20 +10,22 @@ import UIKit
 import Firebase
 
 class AddJobViewController: UIViewController {
-
+    // MARK: IB OUTLETS
     @IBOutlet weak var jobTitleField: UITextField!
     @IBOutlet weak var jobDescriptionField: UITextView!
     @IBOutlet weak var paymentMethodField: UITextField!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     
-    
+    // MARK: VAIRABLES
     var job: Job!
     
+    // MARK: FUNCTIONS
     override func viewDidLoad() {
         super.viewDidLoad()
         if job == nil {
             job = Job()
         }
+        // save bar should be disabled until the text is input
         saveBarButton.isEnabled = false
     }
     
@@ -44,7 +46,6 @@ class AddJobViewController: UIViewController {
         }
     }
     
-    
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -52,7 +53,7 @@ class AddJobViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    
+    // MARK: IB ACTIONS
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         job.jobTitle = jobTitleField.text!
         job.jobDescription = jobDescriptionField.text!
@@ -74,15 +75,9 @@ class AddJobViewController: UIViewController {
         checkEnableSave()
     }
 
-
-
     @IBAction func paymentMethodChanged(_ sender: Any) {
         checkEnableSave()
     }
-    
-
-    
-    
 }
 
 

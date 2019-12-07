@@ -12,10 +12,7 @@ class AboutPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
-    
 
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)

@@ -16,6 +16,7 @@ class Job {
     var postingUserID: String
     var documentID: String
     
+    
     var dictionary: [String: Any] {
         return ["jobTitle": jobTitle , "jobDescription": jobDescription, "paymentMethod": paymentMethod, "postingUserID": postingUserID, "documentID": documentID]
     }
@@ -53,7 +54,7 @@ class Job {
             let ref = db.collection("jobs").document(self.documentID)
             ref.setData(dataToSave) { (error) in
                 if let error = error {
-                    print("Error: updating document \(self.documentID)")
+                    print("Error: updating document \(self.documentID). error: \(error.localizedDescription)")
                     completion(false)
                 } else {
                     print("Document updated with ref id \(ref.documentID)")
@@ -64,16 +65,14 @@ class Job {
             var ref: DocumentReference? = nil
             ref = db.collection("jobs").addDocument(data: dataToSave) { error in
                 if let error = error {
-                    print("Error: creating new document \(self.documentID)")
+                    print("Error: creating new document \(self.documentID), error: \(error.localizedDescription)")
                     completion(false)
                 } else {
                     print("document created with ref id \(ref?.documentID ?? "unknown")")
                     completion(true)
                 }
-                
             }
         }
-        
     }
     
     func deleteData(job: Job, completed: @escaping (Bool) -> ()) {

@@ -12,14 +12,9 @@ class LoadPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
     @IBAction func tapGesturePressed(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "LoadPressed", sender: nil)
-        
     }
-    
-
 }

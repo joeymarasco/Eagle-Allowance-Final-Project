@@ -12,12 +12,16 @@ import FirebaseUI
 import GoogleSignIn
 
 class ViewController: UIViewController {
+    // MARK: IB OUTLETS
     @IBOutlet weak var jobTableView: UITableView!
     @IBOutlet weak var addJobBarButton: UIBarButtonItem!
+    @IBOutlet weak var accountButton: UIBarButtonItem!
     
+    // MARK: VARIABLES
     var jobs: Jobs!
     var authUI: FUIAuth!
     
+    // MARK:  FUNCTIONS
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,16 +30,17 @@ class ViewController: UIViewController {
         
         jobTableView.delegate = self
         jobTableView.dataSource = self
+        // protect table view from people who arent signed in
         jobTableView.isHidden = true
         addJobBarButton.isEnabled = false
-        // should make the button say sign in 
-        
+        accountButton.title = "Sign In"
+        // populate the jobs variable
         jobs = Jobs()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         jobs.loadData {
+            self.jobs.jobArray.sort(by: {$0.jobTitle < $1.jobTitle})
             self.jobTableView.reloadData()
         }
     }
@@ -53,6 +58,7 @@ class ViewController: UIViewController {
         } else {
             jobTableView.isHidden = false
             addJobBarButton.isEnabled = true
+            accountButton.title = "Sign Out"
         }
     }
     
@@ -68,16 +74,22 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK:  IB ACTIONS
     @IBAction func signOutPressed(_ sender: UIBarButtonItem) {
         do {
             try authUI!.signOut()
             print("$$$ successful sign out")
+            // protext table view from people who arent signed in
             jobTableView.isHidden = true
             addJobBarButton.isEnabled = false
+            accountButton.title = "Sign In"
+            
             signIn()
         } catch {
+            // allow users to now see the tableview
             jobTableView.isHidden = true
             addJobBarButton.isEnabled = false
+            accountButton.title = "Sign Out"
             print("ERROR: Couldnt sign out")
         }
     }
@@ -87,17 +99,25 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: EXTENSIONS
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jobs.jobArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // create the cell
         let cell = jobTableView.dequeueReusableCell(withIdentifier: "JobCell", for: indexPath)
+        // format the cell (text, color, font)
         cell.textLabel?.text = jobs.jobArray[indexPath.row].jobTitle
         cell.textLabel?.textColor = UIColor.init(hue: 5.0, saturation: 0.83, brightness: 0.37, alpha: 0.95)
+        cell.textLabel?.font = UIFont(name: "Futura", size: 15.0)
+        // make your own posts show as light gray
         if jobs.jobArray[indexPath.row].postingUserID == authUI.auth?.currentUser?.email {
             cell.contentView.backgroundColor = UIColor.lightGray
+        } else {
+            cell.contentView.backgroundColor = UIColor.white
         }
+        // return the cell
         return cell
     }
 }
@@ -116,10 +136,8 @@ extension ViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         if let user = user {
             jobTableView.isHidden = false
-            ///
-            
-            // this is where is should change the name of the sign in button
             addJobBarButton.isEnabled = true
+            accountButton.title = "Sign Out"
             print("**** we signed in with user: \(user.email ?? "unknown email")")
         }
     }

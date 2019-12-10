@@ -50,7 +50,7 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
             deleteJobBarButton.isEnabled = false
             interestTableView.isHidden = true
             interestTableViewLabel.text = ""
-            interestBarButton.isEnabled = true
+            //interestBarButton.isEnabled = true
         }
         interestTableView.delegate = self
         interestTableView.dataSource = self
@@ -97,7 +97,7 @@ class JobDetailViewController: UIViewController, MFMailComposeViewControllerDele
             deleteJobBarButton.isEnabled = false
             interestTableView.isHidden = true
             interestTableViewLabel.text = ""
-            interestBarButton.isEnabled = true
+            //interestBarButton.isEnabled = true
         }
     }
     

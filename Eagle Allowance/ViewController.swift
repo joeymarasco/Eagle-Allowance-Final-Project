@@ -114,8 +114,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         // make your own posts show as light gray
         if jobs.jobArray[indexPath.row].postingUserID == authUI.auth?.currentUser?.email {
             cell.contentView.backgroundColor = UIColor.lightGray
+            cell.backgroundColor = UIColor.lightGray
         } else {
             cell.contentView.backgroundColor = UIColor.white
+            cell.backgroundColor = UIColor.white
         }
         // return the cell
         return cell
